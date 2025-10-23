@@ -14,8 +14,10 @@ document.addEventListener("DOMContentLoaded", () => {
   activitiesList.innerHTML = "";
   activitySelect.innerHTML = '<option value="">-- Select an activity --</option>';
 
-      // Populate activities list
-      Object.entries(activities).forEach(([name, details]) => {
+      // Sort activities alphabetically by name
+      Object.entries(activities)
+        .sort(([aName], [bName]) => aName.localeCompare(bName))
+        .forEach(([name, details]) => {
         const activityCard = document.createElement("div");
         activityCard.className = "activity-card";
 
